@@ -51,6 +51,7 @@ let consumerCoordinator (mailbox: Actor<_>) =
             if state.productionDone then
                 if state.all = newState.completed then 
                     printfn "Zegnajcie"
+                    Environment.Exit(0);
                     return "End"
                 else
                     return! loop (newState)
@@ -66,7 +67,7 @@ let consumerCoordinator (mailbox: Actor<_>) =
 let main argv =
     use system = System.create "my-system" (Configuration.defaultConfig())
     let consumer = spawn system "consumer-coordinator" consumerCoordinator
-    let product = producer(16000000) |> Async.RunSynchronously
+    let product = producer(16) |> Async.RunSynchronously
     for x in product do 
         consumer <! PrintProduct(x)
     consumer <! ProductionCompleted
