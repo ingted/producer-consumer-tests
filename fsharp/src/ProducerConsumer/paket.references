@@ -1,3 +1,5 @@
 FSharp.Core
 Akka
 Akka.FSharp
+Akka.Streams
+BenchmarkDotNet

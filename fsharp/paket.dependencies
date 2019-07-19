@@ -4,3 +4,5 @@ storage: none
 nuget FSharp.Core
 nuget Akka
 nuget Akka.FSharp
+nuget Akka.Streams
+nuget BenchmarkDotNet
